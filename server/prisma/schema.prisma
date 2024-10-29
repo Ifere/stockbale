@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  userId String @id @default(cuid())
+  name String
+  email String @unique
+
+}
+
+model Products {
+  productId String @id @default(cuid())
+  name String
+  description String?
+  price Float
+  rating Float
+  stockQuantity Int
+  Sales Sales[]
+  Purchases Purchases[]
+}
+
+model Sales {
+  saleId String @id @default(cuid())
+  productId String
+  quantity Int
+  timestamp DateTime @default(now())
+  unitPrice Float
+  totalAmount Float
+  product Products @relation(fields: [productId], references: [productId])
+}
+
+model Purchases {
+  purchaseId String @id @default(cuid())
+  productId String
+  timestamp DateTime @default(now())
+  quantity Int
+  unitCost Float
+  totalCost Float
+  product Products @relation(fields: [productId], references: [productId])
+}
+
+model Expenses {
+  expenseId String @id @default(cuid())
+  amount Float
+  category String
+  description String?
+  timestamp DateTime @default(now())
+}
+
+model SalesSummary {
+  salesSummaryId String @id @default(cuid())
+  totalValue Float
+  changePercentage Float?
+  date DateTime @default(now())
+}
+
+model PurchaseSummary {
+  purchaseSummaryId String @id @default(cuid())
+  totalPurchased Float
+  changePercentage Float?
+  date DateTime @default(now())
+}
+
+model ExpenseSummary {
+  expenseSummaryId String @id @default(cuid())
+  totalExpenses Float
+  date DateTime @default(now())
+  ExpenseByCategory ExpenseByCategory[]
+}
+
+model ExpenseByCategory {
+  expenseByCategoryId String @id @default(cuid())
+  expenseSummaryId String
+  category String
+  amount BigInt
+  date DateTime @default(now())
+  expenseSummary ExpenseSummary @relation(fields: [expenseSummaryId], references: [expenseSummaryId])
+}
