@@ -1,6 +1,6 @@
  # Stockbale - Inventory Management System
 
-Stockbale is a modern, full-stack inventory management system built with Next.js and Express. It provides businesses with a robust solution for tracking products, managing stock levels, monitoring sales, and analyzing expenses.
+Stockbale is a modern, full-stack inventory management system built with Next.js and ExpressJs. It provides businesses with a robust solution for tracking products, managing stock levels, monitoring sales, and analyzing expenses.
 
 ![Stockbale Dashboard](server/assets/stockbale.png)
 
