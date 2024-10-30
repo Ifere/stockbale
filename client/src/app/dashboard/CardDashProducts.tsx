@@ -30,7 +30,7 @@ const CardDashProducts = () => {
 
                             <div className="flex items-center gap-3">
                         <Image
-                        src={`https://s3-stockbale.s3.eu-west-3.amazonaws.com/Product+${Math.floor(Math.random() * 3) + 1}.png`}
+                        src={`https://s3-stockbale.s3.eu-west-3.amazonaws.com/Product${Math.floor(Math.random() * 7) + 1}.png`}
                         alt={product.name}
                         width={48}
                         height={48}
