@@ -69,9 +69,10 @@ const Sidebar = () => {
         {/* Top Logo */}
         <div className={`flex gap-3 justify-between md: justify-normal items-center pt-8 ${
             isSidebarOpen ? 'px-8' : 'px-5'} `}>
+                {/* TODO: move images from cloudinary to s3 */}
         <Image
           src="https://res.cloudinary.com/doy5slx3n/image/upload/v1730203269/Logo_design_cshdwn.png"
-          alt="edstock-logo"
+          alt="stockbale-logo"
           width={27}
           height={27}
           className="rounded w-8"

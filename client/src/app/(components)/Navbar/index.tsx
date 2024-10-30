@@ -70,6 +70,7 @@ const Navbar = () => {
                     </div>
                     <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
                     <div className="flex items-center gap-3 cursor-pointer">
+                        {/* TODO: move profile image from cloudinary to s3 and connect to db */}
                     <Image
               src="https://res.cloudinary.com/doy5slx3n/image/upload/v1730205141/boredapeblindfold_py4db3.png"
               alt="Profile"

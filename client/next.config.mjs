@@ -8,6 +8,12 @@ const nextConfig = {
             port: '',
             pathname: '/doy5slx3n/**',
           },
+          {
+            protocol: "https",
+            hostname: "s3-stockbale.s3.eu-west-3.amazonaws.com",
+            port: "",
+            pathname: "/**",
+          }
         ],
       },
 };
